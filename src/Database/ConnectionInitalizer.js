@@ -1,5 +1,5 @@
 import mysql from 'mysql2/promise';
-import ConnectionError from './Error/ConnectionError';
+import ConnectionError from './Error/ConnectionError.js';
 
 /**
  * ConnectionInitializer
@@ -16,7 +16,8 @@ export default class ConnectionInitializer
             this.connection = await mysql.createConnection({
                 host: process.env.DB_HOST,
                 user: process.env.DB_USERNAME,
-                database: process.env.DB_NAME
+                database: process.env.DB_NAME,
+                namedPlaceholders: true
             });
         } catch (error) {
             throw new ConnectionError(error.message, error);
