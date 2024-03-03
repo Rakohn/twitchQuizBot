@@ -22,7 +22,7 @@ export default class MessageHandler
             return;
         }
 
-        for (const adapter in this.adapters) {
+        for (const adapter of this.adapters) {
             if (adapter.support(context, message)) {
                 adapter.handle(context, message);
             }
