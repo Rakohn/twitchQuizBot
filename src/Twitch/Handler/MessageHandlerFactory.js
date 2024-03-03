@@ -1,5 +1,5 @@
-import QuizLaunchAdapter from "./MessageAdapter/QuizLaunchAdapter";
-import MessageHandler from "./MessageHandler";
+import QuizLaunchAdapter from "./MessageAdapter/QuizLaunchAdapter.js";
+import MessageHandler from "./MessageHandler.js";
 
 /**
  * Class MessageHandlerFactory
