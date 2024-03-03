@@ -1,10 +1,10 @@
 import Answer from "../Answer.js";
+import NoAnswerError from "../Error/NoAnswerError.js";
 import Question from "../Question.js";
 
 export default class QuestionFactory
 {
     /**
-     *
      * @param {Array} data
      */
     static create(data)
@@ -29,6 +29,11 @@ export default class QuestionFactory
                 question.expectedAnswerPrefix = element.answer_prefix;
             }
         }
-        console.log(question);return;
+
+        if (undefined === question.expectedAnswerPrefix) {
+            throw new NoAnswerError('No answer binded to the question');
+        }
+
+        return question;
     }
 }
