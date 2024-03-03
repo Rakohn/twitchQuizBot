@@ -1,5 +1,6 @@
 import QuestionFactory from "../../Entity/Factory/QuestionFactory.js";
 import ConnectionInitializer from "../ConnectionInitalizer.js";
+import QuestionNotFoundError from "./Error/QuestionNotFoundError.js";
 
 export default class QuizRepository
 {
@@ -19,6 +20,10 @@ export default class QuizRepository
             "JOIN answer a\n" +
             "   ON q.id = a.question_id"
         );
+
+        if (!result.isArray() || result.length === 0) {
+            throw new QuestionNotFoundError("An error occurs in DB");
+        }
 
         return QuestionFactory.create(result);
     }
