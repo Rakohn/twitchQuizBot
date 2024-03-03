@@ -1,6 +1,7 @@
 import tmi from 'tmi.js';
 import MessageHandler from './src/Twitch/Handler/MessageHandler.js';
 import MessageHandlerFactory from './src/Twitch/Handler/MessageHandlerFactory.js';
+import ConnectionHandler from './src/Twitch/Handler/ConnectionHandler.js';
 
 const twitchOptions = {
     identity: {
@@ -13,15 +14,8 @@ const twitchOptions = {
 };
 
 const messageHandler = MessageHandlerFactory.create();
-console.log(messageHandler instanceof MessageHandler);
 const client = new tmi.client(twitchOptions);
 
 client.on('message', messageHandler.onMessage.bind(messageHandler));
-client.on('connected', onConnectedHandler);
-
+client.on('connected', ConnectionHandler.onConnectedEvent);
 client.connect();
-
-function onConnectedHandler (addr, port) {
-    console.log(addr, port);
-    console.log(`* Connected to ${addr}:${port}`);
-}
