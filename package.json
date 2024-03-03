@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "startbot": "nodemon --env-file=.env.local bot.js localhost 3000",
+    "startindex": "nodemon --env-file=.env.local index.js localhost 3000"
   },
   "author": "GRem",
   "license": "ISC",
