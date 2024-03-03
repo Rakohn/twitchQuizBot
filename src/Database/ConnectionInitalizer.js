@@ -8,7 +8,7 @@ import ConnectionError from './Error/ConnectionError';
  */
 export default class ConnectionInitializer
 {
-    static connection;
+    static connection = null;
 
     static async initialize()
     {
@@ -21,5 +21,14 @@ export default class ConnectionInitializer
         } catch (error) {
             throw new ConnectionError(error.message, error);
         }
+    }
+
+    static async getConnection()
+    {
+        if (this.connection === null) {
+            await this.initialize();
+        }
+
+        return this.connection;
     }
 }
