@@ -17,7 +17,13 @@ export default class QuizLaunchAdapter
         return context.username === 'gremlive' && message.trim() === '!quiz';
     }
 
-    handle(context, message)
+    /**
+     * @param {string} target
+     * @param {object} context
+     * @param {string} message
+     * @param {import("tmi.js").Actions} client
+     */
+    handle(target, context, message, client)
     {
         this.repository.getRandomQuiz();
     }

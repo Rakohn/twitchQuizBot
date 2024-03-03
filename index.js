@@ -13,8 +13,8 @@ const twitchOptions = {
     ]
 };
 
-const messageHandler = MessageHandlerFactory.create();
 const client = new tmi.client(twitchOptions);
+const messageHandler = MessageHandlerFactory.create(client);
 
 client.on('message', messageHandler.onMessage.bind(messageHandler));
 client.on('connected', ConnectionHandler.onConnectedEvent);

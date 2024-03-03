@@ -3,9 +3,10 @@ export default class MessageHandler
     /**
      * @param {Iterable} adapters
      */
-    constructor(adapters)
+    constructor(adapters, client)
     {
         this.adapters = adapters;
+        this.client = client;
     }
 
     /**
@@ -24,7 +25,7 @@ export default class MessageHandler
 
         for (const adapter of this.adapters) {
             if (adapter.support(context, message)) {
-                adapter.handle(context, message);
+                adapter.handle(target, context, message, client);
             }
         }
     }
