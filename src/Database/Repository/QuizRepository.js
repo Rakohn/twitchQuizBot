@@ -25,7 +25,7 @@ export default class QuizRepository
             "   ON q.id = a.question_id"
         );
 
-        if (!result.isArray() || result.length === 0) {
+        if (!Array.isArray(result) || result.length === 0) {
             throw new QuestionNotFoundError("An error occurs in DB");
         }
 
