@@ -1,9 +1,13 @@
 import QuestionFactory from "../../Entity/Factory/QuestionFactory.js";
+import Question from "../../Entity/Question.js";
 import ConnectionInitializer from "../ConnectionInitalizer.js";
 import QuestionNotFoundError from "./Error/QuestionNotFoundError.js";
 
 export default class QuizRepository
 {
+    /**
+     * @returns {Question}
+     */
     async getRandomQuiz()
     {
         let connection = await ConnectionInitializer.getConnection();
