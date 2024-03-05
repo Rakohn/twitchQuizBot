@@ -1,6 +1,6 @@
-import { client } from "tmi.js";
 import QuizLaunchAdapter from "./MessageAdapter/QuizLaunchAdapter.js";
 import MessageHandler from "./MessageHandler.js";
+import QuizAnwswerAdpater from "./MessageAdapter/QuizAnswerAdapter.js";
 
 /**
  * Class MessageHandlerFactory
@@ -9,10 +9,11 @@ import MessageHandler from "./MessageHandler.js";
  */
 export default class MessageHandlerFactory
 {
-    static create()
+    static create(client)
     {
         let adapters = [];
         adapters.push(new QuizLaunchAdapter());
+        adapters.push(new QuizAnwswerAdpater());
 
         return new MessageHandler(adapters, client);
     }
