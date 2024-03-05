@@ -12,7 +12,6 @@ export default class QuizAnwswerAdpater
     support(context, message)
     {
         return Quiz.isInProgress()
-            && context.username !== 'gremlive'
             && message.trim().match(/^!\d+$/) !== null;
     }
 
