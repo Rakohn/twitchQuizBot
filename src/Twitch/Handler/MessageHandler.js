@@ -25,7 +25,7 @@ export default class MessageHandler
 
         for (const adapter of this.adapters) {
             if (adapter.support(context, message)) {
-                adapter.handle(target, context, message, client);
+                adapter.handle(target, context, message, this.client);
             }
         }
     }
