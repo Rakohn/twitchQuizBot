@@ -22,7 +22,8 @@ export default class QuizRepository
             "   a.propose\n" +
             "FROM randomQuestion q\n" +
             "JOIN answer a\n" +
-            "   ON q.id = a.question_id"
+            "   ON q.id = a.question_id\n" +
+            "ORDER BY a.answer_prefix"
         );
 
         if (!Array.isArray(result) || result.length === 0) {
