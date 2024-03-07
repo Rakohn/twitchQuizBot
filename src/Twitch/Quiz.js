@@ -1,5 +1,9 @@
 import Question from "../Entity/Question.js";
-
+/**
+ * Class Quiz
+ *
+ * @author GRem
+ */
 export default class Quiz
 {
     /** @type {Question}  */
@@ -8,6 +12,8 @@ export default class Quiz
     static inProgress = false;
     /** @type {Array} */
     static winners = [];
+    /** @type {Array} */
+    static players = [];
 
     /**
      * @param {Question} question
@@ -27,11 +33,15 @@ export default class Quiz
         this.inProgress = false;
     }
 
+    /**
+     * @returns {void}
+     */
     static reset()
     {
         this.question = null;
         this.inProgress = false;
         this.winners = [];
+        this.players = [];
     }
 
     /**
@@ -57,5 +67,22 @@ export default class Quiz
     static hasWinner()
     {
         return this.winners.length > 0;
+    }
+
+    /**
+     * @param {string} username
+     * @returns {boolean}
+     */
+    static hasAlreadyPlayed(username)
+    {
+        return this.players.includes(username);
+    }
+
+    /**
+     * @param {string} username
+     */
+    static addPlayer(username)
+    {
+        this.players.push(username);
     }
 }
