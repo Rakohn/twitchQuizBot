@@ -17,20 +17,22 @@ export default class QuizEndEvent
     {
         Quiz.end();
 
-        let message = "C'est fini !\n" +
-            "La bonne réponse était : " +
-            Quiz.question.answers[Quiz.question.expectedAnswerPrefix - 1].propose + ".\n";
+        this.client.say(this.target, "C'est fini !");
+        this.client.say(
+            this.target,
+            "La bonne réponse était : " + Quiz.question.answers[Quiz.question.expectedAnswerPrefix - 1].propose
+        );
 
         if (!Quiz.hasWinner()) {
-            message += "Personne n'a trouvé la bonne réponse";
+            this.client.say(this.target, "Personne n'a trouvé la bonne réponse");
         } else {
             Quiz.winners.forEach((user, index) => {
-                message += (index + 1) + user + "\n\nBravo !";
+                this.client.say(this.target, (index + 1) + " " + user);
             });
+
+            this.client.say(this.target, "Bravo !");
         }
 
         Quiz.reset();
-
-        this.client.say(this.target, message)
     }
 }

@@ -34,14 +34,12 @@ export default class QuizLaunchAdapter
 
             Quiz.start(question);
 
-            let message = question.content + "\n";
+            client.say(target, question.content);
             question.answers.forEach(answer => {
-                message += "!" + answer.answerPrefix + " " + answer.propose;
+                client.say(target, "!" + answer.answerPrefix + " " + answer.propose);
             });
 
             const endEvent = new QuizEndEvent(target, client);
-
-            client.say(target, message);
 
             setTimeout(endEvent.onTimeout.bind(endEvent), 20000);
         } catch (error) {
