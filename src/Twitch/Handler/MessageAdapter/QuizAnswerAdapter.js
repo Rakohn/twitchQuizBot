@@ -1,6 +1,11 @@
 import { Client } from "tmi.js";
 import Quiz from "../../Quiz.js";
 
+/**
+ * Class QuizAnwswerAdpater
+ *
+ * @author GRem
+ */
 export default class QuizAnwswerAdpater
 {
     /**

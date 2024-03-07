@@ -2,6 +2,11 @@ import Answer from "../Answer.js";
 import NoAnswerError from "../Error/NoAnswerError.js";
 import Question from "../Question.js";
 
+/**
+ * Class QuestionFactory
+ *
+ * @author GRem
+ */
 export default class QuestionFactory
 {
     /**

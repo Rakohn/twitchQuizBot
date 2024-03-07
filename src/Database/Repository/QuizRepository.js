@@ -3,6 +3,11 @@ import Question from "../../Entity/Question.js";
 import ConnectionInitializer from "../ConnectionInitalizer.js";
 import QuestionNotFoundError from "./Error/QuestionNotFoundError.js";
 
+/**
+ * Class QuizRepository
+ *
+ * @author GRem
+ */
 export default class QuizRepository
 {
     /**

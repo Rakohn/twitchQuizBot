@@ -16,6 +16,11 @@ export default class QuizLaunchAdapter
         this.repository = new QuizRepository();
     }
 
+    /**
+     * @param {object} context
+     * @param {string} message
+     * @returns {boolean}
+     */
     support(context, message)
     {
         return context.username === 'gremlive' && message.trim() === '!quiz';
@@ -54,7 +59,5 @@ export default class QuizLaunchAdapter
 
             client.say(target, message);
         }
-
-
     }
 }

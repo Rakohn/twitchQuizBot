@@ -1,6 +1,11 @@
 import { Client } from "tmi.js";
 import Quiz from "../Twitch/Quiz.js";
 
+/**
+ * Class QuizEndEvent
+ *
+ * @author GRem
+ */
 export default class QuizEndEvent
 {
     /**
@@ -13,6 +18,9 @@ export default class QuizEndEvent
         this.client = client;
     }
 
+    /**
+     * @returns {void}
+     */
     onTimeout()
     {
         Quiz.end();

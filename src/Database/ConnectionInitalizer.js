@@ -8,8 +8,12 @@ import ConnectionError from './Error/ConnectionError.js';
  */
 export default class ConnectionInitializer
 {
+    /** @type {import('mysql2').Connection} */
     static connection = null;
 
+    /**
+     * @returns {void}
+     */
     static async initialize()
     {
         try {
@@ -24,6 +28,9 @@ export default class ConnectionInitializer
         }
     }
 
+    /**
+     * @returns {import('mysql2').Connection}
+     */
     static async getConnection()
     {
         if (this.connection === null) {

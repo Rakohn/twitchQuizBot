@@ -1,3 +1,8 @@
+/**
+ * Class Question
+ *
+ * @author GRem
+ */
 export default class Question
 {
     id;

@@ -1,7 +1,15 @@
+import { Client } from "tmi.js";
+
+/**
+ * Class MessageHandler
+ *
+ * @author GRem
+ */
 export default class MessageHandler
 {
     /**
      * @param {Iterable} adapters
+     * @param {Client} client
      */
     constructor(adapters, client)
     {
@@ -10,12 +18,11 @@ export default class MessageHandler
     }
 
     /**
-     *
      * @param {string} target
      * @param {object} context
      * @param {string} message
      * @param {boolean} self
-     * @returns
+     * @returns {void}
      */
     onMessage(target, context, message, self)
     {
