@@ -37,4 +37,15 @@ export default class QuizRepository
 
         return QuestionFactory.create(result);
     }
+
+    /**
+     * 
+     * @param {number} quizId 
+     */
+    setQuizAsSubmitted(quizId)
+    {
+        const query = "UPDATE question SET submit_at = NOW() WHERE id = :questionId";
+
+        this.connection.execute(query, {questionId: quizId});
+    }
 }
