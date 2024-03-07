@@ -25,6 +25,12 @@ export default class QuizAnwswerAdpater
      */
     handle(target, context, message, client)
     {
+        if (Quiz.hasAlreadyPlayed(context.username)) {
+            return;
+        }
+
+        Quiz.addPlayer(username);
+
         if (Quiz.question.expectedAnswerPrefix === parseInt(message.substring(1))) {
             Quiz.addWinner(context.username);
         }
