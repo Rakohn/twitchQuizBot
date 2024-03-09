@@ -39,7 +39,6 @@ export default class QuizRepository
     }
 
     /**
-     *
      * @param {number} quizId
      */
     async setQuizAsSubmitted(quizId)

@@ -50,7 +50,11 @@ export default class QuizLaunchAdapter
 
             setTimeout(endEvent.onTimeout.bind(endEvent), 20000);
 
-            this.repository.setQuizAsSubmitted(question.id);
+            try {
+                this.repository.setQuizAsSubmitted(question.id);
+            } catch (error) {
+                console.log(error);
+            }
         } catch (error) {
             if (error instanceof QuestionNotFoundError) {
                 message = "On a plus de question en stock patron !";
