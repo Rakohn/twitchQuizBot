@@ -15,7 +15,7 @@ export default class QuizRepository
      */
     async getRandomQuiz()
     {
-        let connection = await ConnectionInitializer.getConnection();
+        const connection = await ConnectionInitializer.getConnection();
         let [result] = await connection.execute(
             "WITH randomQuestion AS (SELECT * FROM question WHERE submit_at IS NULL ORDER BY RAND() LIMIT 1)" +
             "SELECT\n" +
@@ -39,13 +39,14 @@ export default class QuizRepository
     }
 
     /**
-     * 
-     * @param {number} quizId 
+     *
+     * @param {number} quizId
      */
-    setQuizAsSubmitted(quizId)
+    async setQuizAsSubmitted(quizId)
     {
+        const connection = await ConnectionInitializer.getConnection();
         const query = "UPDATE question SET submit_at = NOW() WHERE id = :questionId";
 
-        this.connection.execute(query, {questionId: quizId});
+        connection.execute(query, {questionId: quizId});
     }
 }

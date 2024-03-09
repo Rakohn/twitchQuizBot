@@ -47,6 +47,8 @@ export default class QuizLaunchAdapter
             const endEvent = new QuizEndEvent(target, client);
 
             setTimeout(endEvent.onTimeout.bind(endEvent), 20000);
+
+            this.repository.setQuizAsSubmitted(question.id);
         } catch (error) {
             if (error instanceof QuestionNotFoundError) {
                 message = "On a plus de question en stock patron !";
@@ -54,8 +56,9 @@ export default class QuizLaunchAdapter
                 message = "On a un léger problème, patron, qui requiert votre attention.";
             } else {
                 message = "C'est le bordayle patron, rien ne va, annulez tout !";
-                console.log(error);
             }
+
+            console.log(error);
 
             client.say(target, message);
         }
