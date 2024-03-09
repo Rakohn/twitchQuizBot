@@ -34,7 +34,7 @@ export default class QuizAnwswerAdpater
             return;
         }
 
-        Quiz.addPlayer(username);
+        Quiz.addPlayer(context.username);
 
         if (Quiz.question.expectedAnswerPrefix === parseInt(message.substring(1))) {
             Quiz.addWinner(context.username);
