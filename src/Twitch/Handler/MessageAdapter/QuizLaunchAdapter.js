@@ -23,7 +23,9 @@ export default class QuizLaunchAdapter
      */
     support(context, message)
     {
-        return context.username === 'gremlive' && message.trim() === '!quiz';
+        return !Quiz.isInProgress()
+            && context.username === process.env.AUTHORIZED_USER
+            && message.trim() === '!quiz';
     }
 
     /**
