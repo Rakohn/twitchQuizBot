@@ -31,6 +31,10 @@ export default class QuizEndEvent
             "La bonne réponse était : " + Quiz.question.answers[Quiz.question.expectedAnswerPrefix - 1].propose
         );
 
+        if (Quiz.question.answerPrecision) {
+            this.client.say(this.target, Quiz.question.answerPrecision);
+        }
+
         if (!Quiz.hasWinner()) {
             this.client.say(this.target, "Personne n'a trouvé la bonne réponse");
         } else {
