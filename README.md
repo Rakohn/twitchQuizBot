@@ -1,5 +1,5 @@
 # Twitch Quiz Bot
-This app provide a Twitch chat bot, proposing a quiz game with chat command line
+This app provide a Twitch chat bot, proposing a quiz game with chat command line. Support English and French languages
 
 ## Requierments
 * A Twitch developer account. [Create your developper account](https://dev.twitch.tv/)
@@ -43,6 +43,10 @@ DB_USERNAME=[MySQL user's login]
 DB_PASSWORD=[MySQL user's password]
 DB_HOST=[mysql host address]
 DB_NAME=[the database name]
+
+#Internalization
+APP_LANGUAGE=[en/fr depending your language]
+APP_FALLBACK_LANGUAGE=fr [this app is french first developped, so chose french as fallback language in case of missing translation entry]
 ```
 
 Create your database and create tables. SQL Script available in install.sql file located in the project's root folder.
@@ -60,4 +64,5 @@ To participate, players have to write a message in the chatroom, giving the answ
 
 ## Futur improvement
 - Add routes to handle tokens
-- English support (bot messages are in french for now)
+- Check user status (has subscribed, has followed)
+- Players permission (limit to follower/subsciber)
