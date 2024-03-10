@@ -13,10 +13,7 @@ getText
         backend: {
             loadPath: __dirname + '../../../locales/{{lng}}/translation.json',
         },
-    }, (err, t) => {
-        if (err) return console.error(err);
-        console.log(t('greeting'));  // Assurez-vous que cette clé existe dans vos fichiers de traduction
-      });
+    });
 
 export default getText;
 
