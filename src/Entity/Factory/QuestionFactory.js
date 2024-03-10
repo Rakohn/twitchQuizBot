@@ -36,7 +36,7 @@ export default class QuestionFactory
         }
 
         if (undefined === question.expectedAnswerPrefix) {
-            throw new NoAnswerError('No answer binded to the question');
+            throw new NoAnswerError('No answer binded to the question : ' + question.id);
         }
 
         return question;
