@@ -1,5 +1,6 @@
 import { Client } from "tmi.js";
 import Quiz from "../Twitch/Quiz.js";
+import getText from "../Service/Utils.js";
 
 /**
  * Class QuizEndEvent
@@ -25,10 +26,10 @@ export default class QuizEndEvent
     {
         Quiz.end();
 
-        this.client.say(this.target, "C'est fini !");
+        this.client.say(this.target, getText.t("triviaEndAlert"));
         this.client.say(
             this.target,
-            "La bonne réponse était : " + Quiz.question.answers[Quiz.question.expectedAnswerPrefix - 1].propose
+            getText.t("rightAnswerAlert") + Quiz.question.answers[Quiz.question.expectedAnswerPrefix - 1].propose
         );
 
         if (Quiz.question.answerPrecision) {
@@ -36,13 +37,13 @@ export default class QuizEndEvent
         }
 
         if (!Quiz.hasWinner()) {
-            this.client.say(this.target, "Personne n'a trouvé la bonne réponse");
+            this.client.say(this.target, getText.t("noWinnerAlert"));
         } else {
             Quiz.winners.forEach((user, index) => {
                 this.client.say(this.target, (index + 1) + " " + user);
             });
 
-            this.client.say(this.target, "Bravo !");
+            this.client.say(this.target, getText.t('congrats'));
         }
 
         Quiz.reset();

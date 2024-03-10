@@ -2,12 +2,15 @@ import QuestionNotFoundError from "../../../Database/Repository/Error/QuestionNo
 import QuizRepository from "../../../Database/Repository/QuizRepository.js";
 import NoAnswerError from "../../../Entity/Error/NoAnswerError.js";
 import QuizEndEvent from "../../../Event/QuizEndEvent.js";
+import getText, { sleep } from "../../../Service/Utils.js";
 import Quiz from "../../Quiz.js";
 
 /**
  * Class QuizLaunchAdapter
  *
  * @author GRem
+ *
+ * @todo Replace console.log by log file writing
  */
 export default class QuizLaunchAdapter
 {
@@ -41,10 +44,16 @@ export default class QuizLaunchAdapter
 
             Quiz.start(question);
 
+            client.say(target, getText.t('start'));
+            client.say(target, getText.t('rulesAlert'));
+            await sleep(3000);
+
             client.say(target, question.content);
-            question.answers.forEach(answer => {
+            await sleep(3000);
+
+            for (const answer of question.answers) {
                 client.say(target, "!" + answer.answerPrefix + " " + answer.propose);
-            });
+            }
 
             const endEvent = new QuizEndEvent(target, client);
 
@@ -57,11 +66,11 @@ export default class QuizLaunchAdapter
             }
         } catch (error) {
             if (error instanceof QuestionNotFoundError) {
-                message = "On a plus de question en stock patron !";
+                message = getText.t("emptyTriviaStock");
             } else if (error instanceof NoAnswerError) {
-                message = "On a un léger problème, patron, qui requiert votre attention.";
+                message = getText.t("triviaWithNoSetAnswer");
             } else {
-                message = "C'est le bordayle patron, rien ne va, annulez tout !";
+                message = getText.t("triviaFetchError");
             }
 
             console.log(error);

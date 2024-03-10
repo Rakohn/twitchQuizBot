@@ -2,5 +2,10 @@
     "start": "Un nouveau quiz va être lancé dans trois secondes",
     "emptyTriviaStock": "On a plus de question en stock patron !",
     "triviaWithNoSetAnswer": "On a un léger problème, patron, qui requiert votre attention.",
-    "triviaFetchError": "C'est le bordayle patron, rien ne va, annulez tout !"
+    "triviaFetchError": "C'est le bordayle patron, rien ne va, annulez tout !",
+    "rulesAlert": "Attention, vous n'avez le droit qu'à une seule réponse.",
+    "triviaEndAlert": "C'est fini !",
+    "rightAnswerAlert": "La bonne réponse était : ",
+    "noWinnerAlert": "Personne n'a trouvé la bonne réponse",
+    "congrats": "Bravo !"
 }

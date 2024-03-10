@@ -1,6 +1,11 @@
 {
-    "start": "Un nouveau quiz va être lancé dans trois secondes",
-    "emptyTriviaStock": "On a plus de question en stock patron !",
-    "triviaWithNoSetAnswer": "On a un léger problème, patron, qui requiert votre attention.",
-    "triviaFetchError": "C'est le bordayle patron, rien ne va, annulez tout !"
+    "start": "A new trivia will be launch in three seconds",
+    "emptyTriviaStock": "No more question available boss !",
+    "triviaWithNoSetAnswer": "We got a situation here, can't display a new trivia",
+    "triviaFetchError": "Something wen't wrong boss, stop everything !",
+    "rulesAlert": "Important notice : You can answer only once",
+    "triviaEndAlert": "Finished !",
+    "rightAnswerAlert": "The right answer was : ",
+    "noWinnerAlert": "Nobody found the right answer",
+    "congrats": "Congratulations !"
 }
