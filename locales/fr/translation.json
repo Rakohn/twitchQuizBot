@@ -1,0 +1,6 @@
+{
+    "start": "Un nouveau quiz va être lancé dans trois secondes",
+    "emptyTriviaStock": "On a plus de question en stock patron !",
+    "triviaWithNoSetAnswer": "On a un léger problème, patron, qui requiert votre attention.",
+    "triviaFetchError": "C'est le bordayle patron, rien ne va, annulez tout !"
+}
