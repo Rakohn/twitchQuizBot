@@ -52,11 +52,17 @@ APP_FALLBACK_LANGUAGE=fr [this app is french first developped, so chose french a
 Create your database and create tables. SQL Script available in install.sql file located in the project's root folder.
 
 ## Launch the app localy
-Require nodemon to be installed in your environment
+Require :
+* nodemon to be installed in your environment
+* create .env.local file
 ```console
 npm run start
 ```
-
+Will launch the app on port 3000
+Or
+```console
+node --env-file=[your .env file] index.js [domain] [port]
+```
 ## How to use
 When app is launched, just tape !quizz in the chatroom. It will display a random quiz load from the database and set it as submitted. Quiz set as submitted won't be played anymore.
 
