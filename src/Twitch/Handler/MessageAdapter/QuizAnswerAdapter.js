@@ -17,7 +17,7 @@ export default class QuizAnwswerAdpater
     support(context, message)
     {
         return Quiz.isInProgress()
-            && message.trim().match(/^!\d+$/) !== null;
+            && message.match(/^!\d+$/) !== null;
     }
 
     /**

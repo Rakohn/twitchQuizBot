@@ -28,7 +28,7 @@ export default class QuizLaunchAdapter
     {
         return !Quiz.isInProgress()
             && context.username === process.env.AUTHORIZED_USER
-            && message.trim() === '!quiz';
+            && message === '!quiz';
     }
 
     /**
